@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel App</title>
+</head>
+
+<body>
+
+    <section id="input-container">
+        <header>
+            <h3>Travel App</h3>
+        </header>
+        <div class="input-box">
+            <h1>What's your next trip?</h1>
+            <form id="form-container">
+                <div>
+                    <label for="destination">Destination</label><br>
+                    <input type="text" id="destination" name="destination" value="" placeholder="Enter city name"><br>
+                    <p class="error-msg" id="error-destination">*invalid city</p>
+                    
+                </div>
+                <div>
+                    <label for="departure">Departure Date</label><br>
+                    <input type="date" id="departure" name="departure" value="" placeholder="yyyy-mm-dd"
+                        min=""><br> 
+                    <p class="error-msg" id="error-date">*invalid date</p>
+                </div>
+                <div class="submit-btn">
+                    <button type="button" class="button" id="submit">Add Trip</button>
+                    <p class="error-msg" id="placeholder">placeholder</p>
+                </div>
+
+            </form>
+        </div>
+
+    </section>
+
+    <h2>Your Future Trips</h2>
+
+    <section id="result-container">
+
+        <!-- result card -->
+        <!-- <div class="result-card">
+            <div><img src="/src/client/images/travelapp.jpg" alt="city photo"></div>
+            <div class="result-text">
+                <p>Destination</p>
+                <div id="destination-result">Venice,Italy</div>
+                <p>Departure Date</p>
+                <div id="date-result">June 7,2021</div>
+                <p>Information</p>
+                <span>Venice is </span><span id="date-left">100</span><span>day(s) away!</span><br>
+                <span>The weather at that date will be</span>
+                <div id="weather">high 46 and low 35. Mostly Cloudy throughout the day.</div>
+                <button type="button" class="button btn-outline" >Remove Trip</button>
+            </div>
+        
+        
+        </div> -->
+
+    </section>
+
+</body>
+
+</html>
