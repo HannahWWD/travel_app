@@ -19,7 +19,6 @@ const getGeoData = async (city, key) => {
     const request = await fetch(encodeURI(url));
     try {
         const data = await request.json();
-        console.log(data)
         if (data.totalResultsCount != 0){
             const geoLocation = {
                 city:data.geonames[0].name,
@@ -91,7 +90,6 @@ const getPhoto = async(city,key) => {
     
     const url = `https://pixabay.com/api/?key=${key}&q=${city}&image_type=photo&pretty=true&per_page=3`
     const request = await fetch(encodeURI(url));
-    console.log(encodeURI(url));
     try {
         const data = await request.json();
 

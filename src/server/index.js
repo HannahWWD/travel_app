@@ -23,19 +23,22 @@ app.use(express.static('dist'))
 
 console.log(__dirname)
 
+// designates what port the app will listen to for incoming requests
+const server = app.listen(3030, function () {
+  console.log('Example app listening on port 3030!');
+})
+
+
 app.get('/', function (req, res) {
   // res.sendFile('dist/index.html')
   res.sendFile(path.resolve('src/client/views/index.html'))
 })
 
-// designates what port the app will listen to for incoming requests
-app.listen(3030, function () {
-  console.log('Example app listening on port 3030!')
-})
-
-
 // a POST route to store app data
-app.post('/post-data', function (req, res) {
+app.post('/post-data', updateDatabase)
+
+function updateDatabase(req,res) {
+
   const dataFromApp = req.body;
   // data this time
   Object.assign(projectData,dataFromApp);
@@ -45,7 +48,8 @@ app.post('/post-data', function (req, res) {
   console.log(dataBase);
   // you have to send something back, otherwise the promise will keep pending
   res.send(dataBase);
-})
+
+}
 
 
 // a GET route to get key
@@ -65,20 +69,4 @@ function sendApiKeyToClient(req,res){
 
 }
 
-
-// function getGeo(req, res) {
-//   console.log("GEO data fetch function fired!");
-
-//   const cityname = projectData.city;
-//   const url = `http://api.geonames.org/searchJSON?name=${cityname}&maxRows=5&username=${geo_username}`
-//   let result = {};
-//   fetch(encodeURI(url))
-//     .then(response => response.json())
-//     .then(function (data) {
-//       Object.assign(result, data)
-//       console.log(result)
-//       res.send(result);
-//     })
-//     .catch(error => { console.error("error is:", error) });
-
-// }
+module.exports = server

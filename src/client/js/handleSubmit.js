@@ -20,8 +20,8 @@ const handleSubmit = async () => {
     const daysLeft = getDaysLeft(dateForm.value);
     console.log(daysLeft);
 
-    const isValidDestination = checkDestination()
-    const isValidDate = checkDate()
+    const isValidDestination = checkDestination(destinationForm.value);
+    const isValidDate = checkDate(dateForm.value);
 
     /* reset error message */
     document.getElementById("error-destination").style.visibility = "hidden";
@@ -73,6 +73,7 @@ const handleSubmit = async () => {
         } catch (error) {
             console.log(error);
         }
+        
     } else if (!isValidDestination && isValidDate) {
         // if destination is empty
         document.getElementById("error-destination").style.visibility = "visible";
@@ -80,7 +81,7 @@ const handleSubmit = async () => {
     } else if (isValidDestination && !isValidDate) {
         // if date is not valid
         document.getElementById("error-date").style.visibility = "visible";
-    }else{
+    } else{
         // if both are not valid
         document.getElementById("error-destination").style.visibility = "visible";
         document.getElementById("error-date").style.visibility = "visible";

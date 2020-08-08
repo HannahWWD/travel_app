@@ -27,12 +27,20 @@ test('check addCard() able to add a card div', () => {
     
     `;
 
-    const addButton = document.querySelector('button');
     const resultContainer = document.getElementById("result-container");
 
-    addButton.addEventListener('click', addCard);
 
-    addButton.click();
+    // update UI
+
+    const card_id = 1;
+    const card_city = "LONDON";
+    const card_country = "ENGLAND";
+    const card_image = "https://images.unsplash.com/photo-1596787071320-c06155930dae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1934&q=80"
+    const card_date = "2021-01-01";
+    const card_daysLeft = 10;
+    const card_summary = "This is a test";
+
+    addCard(card_id, card_city, card_country, card_image, card_date, card_daysLeft, card_summary);
 
     // resultContainer should have one child element
     expect(resultContainer.childElementCount).toEqual(1);

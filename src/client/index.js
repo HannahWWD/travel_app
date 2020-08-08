@@ -22,9 +22,6 @@ document.getElementById("result-container").addEventListener('click',removeCard)
 
 document.getElementById('submit').addEventListener('click',handleSubmit);
 
-
-
-
 export {
     addCard,
     removeCard,
