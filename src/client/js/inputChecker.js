@@ -22,7 +22,9 @@ const checkDate = (date) => {
 
     if(isMatch) {
         const daysLeft = getDaysLeft(date);
-        if (daysLeft < 0) {
+        console.log("daysLeft is",daysLeft)
+        if (daysLeft < 0 || daysLeft===false) {
+            console.log("helloooo");
             return false;
         } else {
             return true;

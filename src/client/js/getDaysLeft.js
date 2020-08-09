@@ -1,18 +1,23 @@
 const getDaysLeft = (date_str) => {
 
     const dateList = date_str.split("-");
-    let departureDate = new Date(dateList[0],dateList[1]-1,dateList[2]);
+    // loosely take care of the safari manual input
+    if ( 0 < dateList[1] <= 12 && 0 < dateList[2] <= 31) {
+        let departureDate = new Date(dateList[0], dateList[1] - 1, dateList[2]);
 
-    let today = new Date();
+        let today = new Date();
 
-    // ignore the time and local timezone, in order to get intuitive day lefts
-    const departureUTC = Date.UTC(departureDate.getFullYear(),departureDate.getMonth()+1,departureDate.getDate());
-    const todayUTC = Date.UTC(today.getFullYear(),today.getMonth()+1,today.getDate())
+        // ignore the time and local timezone, in order to get intuitive day lefts
+        const departureUTC = Date.UTC(departureDate.getFullYear(), departureDate.getMonth() + 1, departureDate.getDate());
+        const todayUTC = Date.UTC(today.getFullYear(), today.getMonth() + 1, today.getDate())
 
-    const msPerDay = 24*60*60*1000;
-    const daysLeft = Math.round((departureUTC-todayUTC)/msPerDay);
+        const msPerDay = 24 * 60 * 60 * 1000;
+        const daysLeft = Math.round((departureUTC - todayUTC) / msPerDay);
 
-    return daysLeft;
+        return daysLeft;
+    } else {
+        return false;
+    }
 }
 
 export { getDaysLeft }

@@ -1,5 +1,6 @@
 // project endpoint 
 let projectData = {};
+// a dataBase that stores completed history of the request
 const dataBase = {completeDataHistory:[]};
 
 
@@ -30,8 +31,8 @@ const server = app.listen(3030, function () {
 
 
 app.get('/', function (req, res) {
-  // res.sendFile('dist/index.html')
-  res.sendFile(path.resolve('src/client/views/index.html'))
+  res.sendFile('dist/index.html')
+  // res.sendFile(path.resolve('src/client/views/index.html'))
 })
 
 // a POST route to store app data

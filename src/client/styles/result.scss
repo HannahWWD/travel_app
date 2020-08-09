@@ -108,3 +108,8 @@
 }
 }
 
+@media only print {
+    .print {
+        display:none;
+    }
+}

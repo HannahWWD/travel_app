@@ -6,7 +6,7 @@ import { formatDate } from "./formatDate"
 import { checkDestination, checkDate } from './inputChecker'
 
 
-const handleSubmit = async () => {
+const handleSubmit = async (event) => {
 
     // client side endpoint
     // single data for this submit 
@@ -70,6 +70,10 @@ const handleSubmit = async () => {
             const card_summary = singleClientData.summary;
 
             addCard(card_id, card_city, card_country, card_image, card_date, card_daysLeft, card_summary);
+            
+            event.preventDefault();
+            window.scrollTo(0,document.querySelector('.result-card').offsetTop);
+       
         } catch (error) {
             console.log(error);
         }
