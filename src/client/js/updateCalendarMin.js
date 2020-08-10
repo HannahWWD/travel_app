@@ -1,9 +1,9 @@
 // a small function to update the min function of the calendar
 const updateCalendarMin = () => {
     const calendar = document.getElementById("departure");
-    
+
     const today = new Date();
-    let month = today.getMonth()+1;
+    let month = today.getMonth() + 1;
     let day = today.getDate();
 
     if (month < 10) {

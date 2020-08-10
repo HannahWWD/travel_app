@@ -1,6 +1,6 @@
 // import { updateDataBase } from '../index'
 import 'babel-polyfill'
-const server =require('../index')
+const server =require('../server')
 
 const request = require('supertest');
 

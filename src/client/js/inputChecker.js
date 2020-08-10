@@ -5,7 +5,7 @@ import { getDaysLeft } from "./getDaysLeft";
 const checkDestination = (destination) => {
     if (destination == "") {
         return false;
-    }else{
+    } else {
         return true;
     }
 
@@ -20,17 +20,17 @@ const checkDate = (date) => {
     // if data format correct, return true, otherwise return false
     const isMatch = (date.match(dateFormat) !== null)
 
-    if(isMatch) {
+    if (isMatch) {
         const daysLeft = getDaysLeft(date);
-        console.log("daysLeft is",daysLeft)
-        if (daysLeft < 0 || daysLeft===false) {
+        console.log("daysLeft is", daysLeft)
+        if (daysLeft < 0 || daysLeft === false) {
             console.log("helloooo");
             return false;
         } else {
             return true;
         }
 
-    }else {
+    } else {
         return false;
     }
 

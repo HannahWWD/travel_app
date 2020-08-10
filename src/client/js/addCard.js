@@ -1,11 +1,11 @@
 import { printTrip } from "./printTrip"
 import print from '../images/print.png'
 
-const addCard = (id,city,country,image,date,daysLeft,summary) => {
+const addCard = (id, city, country, image, date, daysLeft, summary) => {
     console.log('addCard!');
     const resultContainer = document.getElementById('result-container');
 
-    
+
     const cardHTML = `
 
     <div class="result-card" id=${id}>
@@ -27,10 +27,11 @@ const addCard = (id,city,country,image,date,daysLeft,summary) => {
 
     `
 
-    resultContainer.insertAdjacentHTML('afterbegin',cardHTML)
+    resultContainer.insertAdjacentHTML('afterbegin', cardHTML)
 
-    document.querySelector(".print").addEventListener("click",printTrip)
+    // print trip when click on the print icon
+    document.querySelector(".print").addEventListener("click", printTrip)
 
 }
 
-export {addCard}
+export { addCard }

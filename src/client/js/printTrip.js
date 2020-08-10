@@ -1,8 +1,8 @@
 const printTrip = () => {
     const targetElem = event.currentTarget.parentNode.parentNode;
-    const tripContents = targetElem.innerHTML; 
+    const tripContents = targetElem.innerHTML;
     console.log(tripContents)
-    const printWindow = window.open("", 'height=500, width=500'); 
+    const printWindow = window.open("", 'height=500, width=500');
     printWindow.document.write(
         `<!DOCTYPE html>
         <html lang="en">
@@ -15,13 +15,13 @@ const printTrip = () => {
         <body>
             ${tripContents}
         </body>
-        </html>`); 
-    setTimeout(()=>{
-        printWindow.print(); 
-        printWindow.document.close(); 
-    },250)
+        </html>`);
+    setTimeout(() => {
+        printWindow.print();
+        printWindow.document.close();
+    }, 250)
 
-    
+
 }
 
 

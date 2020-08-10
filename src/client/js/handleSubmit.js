@@ -8,6 +8,8 @@ import { checkDestination, checkDate } from './inputChecker'
 
 const handleSubmit = async (event) => {
 
+    // member:value pairs
+
     // client side endpoint
     // single data for this submit 
     let singleClientData = {};
@@ -70,14 +72,14 @@ const handleSubmit = async (event) => {
             const card_summary = singleClientData.summary;
 
             addCard(card_id, card_city, card_country, card_image, card_date, card_daysLeft, card_summary);
-            
+
             event.preventDefault();
-            window.scrollTo(0,document.querySelector('.result-card').offsetTop);
-       
+            window.scrollTo(0, document.querySelector('.result-card').offsetTop);
+
         } catch (error) {
             console.log(error);
         }
-        
+
     } else if (!isValidDestination && isValidDate) {
         // if destination is empty
         document.getElementById("error-destination").style.visibility = "visible";
@@ -85,7 +87,7 @@ const handleSubmit = async (event) => {
     } else if (isValidDestination && !isValidDate) {
         // if date is not valid
         document.getElementById("error-date").style.visibility = "visible";
-    } else{
+    } else {
         // if both are not valid
         document.getElementById("error-destination").style.visibility = "visible";
         document.getElementById("error-date").style.visibility = "visible";
