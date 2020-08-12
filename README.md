@@ -1,32 +1,18 @@
 # Travel App 
-capstone project
-by Hannah Wu
+Udacity capstone project
 
-## Project Logic
+This project is a single-page web app that allows users to obtain necessary information such as weather, destination images for their future trip, according to the destination location and departure date input.
 
-- User enters city name and departure date, and then submit the form
-- Client side will then fetch the API keys from the server (note: all 3 api keys are stored in the server)
-- After getting the API keys, 3 APIs will be fetched in the client side, and the data for this submission will be stored in the `singleClientData` (client side member:value pair)
-- Client side will then post the `singleClientData` to the server and stored in the server endpoint `projectData`
-- Server will push the `projectData` into the `dataBase` object, in which a complete history of data will be stored (server side member:value pair)
+## Setup Node.js
 
-### member:value pairs
-
-Client side: the `singleClientData` object in the `handleSubmit.js` file
-Server side: the `projectData` and `dataBase` objects in the `server.js` file
-
-
-## Project Extra
-
-- Allow the user to remove the trip
-- Allow user to Print their trip and/or export to PDF
-- Add multiple trip
-
+Before you start, you will need to install [Node.js](https://nodejs.org/en/) on your computer.
 
 
 ## Getting started
 
-- type in following commands in your terminal to build the project
+### Install
+
+Type in following commands in your terminal to build the project:
 
 ```
 npm install
@@ -34,20 +20,24 @@ npm run build-prod
 npm run start 
 ```
 
-***Note: the App should work properly at PORT 3030.***
-
-- To use development mode, run `npm run build-dev`. Website will automatically open in your browser. At the same time, run `npm run start` to open the local server.
-
-***Note: A service worker error will be shown in the console in the dev-mode. This is because service worker is disabled in webpack.dev.js.***
+**The App should work properly at PORT 3030.**
 
 
-- Close all the servers, and use `npm run test` to run tests (**IMPORTANT:**
-Make sure to close all the server before running the test, otherwise the server test file `server.test.js` will fail due to port conflicts)
+### Development Mode
+
+To use development mode, run `npm run build-dev`. Website will automatically open in your browser. At the same time, run `npm run start` to open the local server.
+
+_Note: You may notice there is a service worker error shown in the console. This is because service worker is disabled in dev-mode. This error will not interrupt with your development process._
+
+### Test 
+
+Close all the servers, and use `npm run test` to run tests 
+
+**IMPORTANT:** Make sure to close all servers before running the test, otherwise the server test file `server.test.js` will fail due to port conflicts
 
 ### Test files
 
-Two `__test__` folders are located separately in the client and server folder.
-
+There are two `__test__` folders, one in the client folder and another in the server folder.
 
 
 ## App Usage
@@ -55,18 +45,18 @@ Two `__test__` folders are located separately in the client and server folder.
 - Type in a single city name (e.g. London, Paris)
 - Select departure date from the date picker
 
-***Note: a departure date that earlier than today is invalid***
+_Note: a departure date that earlier than today is invalid_
 
 ### Notes for Usage
 
-- It might take a few seconds to get the result, especially the photo.
-- The App only works with English content.
+It might take a few seconds to get the result, especially the photo.
+The App only works with English content.
 
 
 
 ## Dependencies
 
-You can find all dependencies in the `package.json` file or the list below:
+`npm install` should automatically install all the dependencies in this project. If not, please find all dependencies in the `package.json` file or the list below. Use `npm i [package-name]` to install dependencies, and use `npm i -D [package-name]` to install dev dependencies.
 
 ```
 "dependencies": {
@@ -81,6 +71,7 @@ You can find all dependencies in the `package.json` file or the list below:
     "webpack": "^4.35.3",
     "webpack-cli": "^3.3.5"
   },
+
   "devDependencies": {
     "@babel/core": "^7.10.5",
     "@babel/preset-env": "^7.10.4",
@@ -105,3 +96,16 @@ You can find all dependencies in the `package.json` file or the list below:
   },
 ```
 
+
+## Known Issue
+
+If you are using Chrome, you may find this warning in the console:
+
+> A cookie associated with a cross-site resource at http://pixabay.com/ was set without the `SameSite` attribute. It has been blocked, as Chrome now only delivers cookies with cross-site requests if they are set with `SameSite=None` and `Secure`. You can review cookies in developer tools under Application>Storage>Cookies and see more details at https://www.chromestatus.com/feature/5088147346030592 and https://www.chromestatus.com/feature/563352162218803
+
+This is because the image presented in the result hotlinks to the Pixabay website. This will not affect normal usage of the app. However, the link is not permanent and will be erased anytime. To permanently store the images, save them to the server as soon as possible.
+
+
+## License
+
+This travel app is free software, and may be redistributed under the terms specified in the [LICENSE](LICENSE) file.
